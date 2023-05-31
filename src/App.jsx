@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
+import Search from './components/Search'
+import List from './components/List'
 import './App.css'
-import axios from 'axios'
 
-class App extends React.Component {
-  getStudentData = () => {
-    axios.get('').then((res) => {})
-  }
-
+export default class App extends Component {
   render() {
-    return <div onClick={this.getStudentData}>获取学生数据</div>
+    return (
+      <div className="container">
+        <Search></Search>
+        <List></List>
+      </div>
+    )
   }
 }
-
-export default App
