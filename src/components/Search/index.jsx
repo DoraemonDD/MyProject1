@@ -1,20 +1,23 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import React, { Component } from "react";
+import axios from "axios";
 
-export default class index extends Component {
+export default class Search extends Component {
   search = () => {
+    this.props.clearPics();
     const {
       searchEl: { value: keyWord }, // 连续解构赋值+重命名
-    } = this
+    } = this;
+    if (keyWord.trim() === "") alert("please input something");
     axios.get(`http://localhost:3000/api1/search/users?q=${keyWord}`).then(
       (res) => {
-        console.log('success', res.data)
+        this.props.getPicData(res.data.items);
+        // console.log("success", res.data);
       },
       (error) => {
-        console.log('fail', error)
-      },
-    )
-  }
+        console.log("fail", error);
+      }
+    );
+  };
 
   render() {
     return (
@@ -23,7 +26,7 @@ export default class index extends Component {
         <div>
           <input
             ref={(c) => {
-              this.searchEl = c
+              this.searchEl = c;
             }}
             type="text"
             placeholder="enter the name you search"
@@ -31,6 +34,6 @@ export default class index extends Component {
           &nbsp;<button onClick={this.search}>Search</button>
         </div>
       </section>
-    )
+    );
   }
 }
