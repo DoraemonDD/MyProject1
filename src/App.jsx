@@ -4,11 +4,15 @@ import List from "./components/List";
 import "./App.css";
 
 export default class App extends Component {
-  state = { picArr: [] };
+  state = {
+    picArr: [], // 初始数组
+    isFirst: true, // 是否为第一次打开页面
+    isLoading: false, // 标识是否处于加载中
+    err: "", // 存储请求相关错误信息
+  };
 
-  getPicData = (pics) => {
-    console.log("pic", pics);
-    this.setState({ picArr: pics });
+  updateAppState = (stateObj) => {
+    this.setState(stateObj);
   };
 
   clearPics = () => {
@@ -22,9 +26,9 @@ export default class App extends Component {
       <div className="container">
         <Search
           clearPics={this.clearPics}
-          getPicData={this.getPicData}
+          updateAppState={this.updateAppState}
         ></Search>
-        <List pics={this.state.picArr}></List>
+        <List {...this.state}></List>
       </div>
     );
   }

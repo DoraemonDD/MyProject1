@@ -3,24 +3,28 @@ import "./index.css";
 
 export default class List extends Component {
   render() {
-    const { pics } = this.props;
+    const { picArr, isFirst, isLoading, err } = this.props;
 
     return (
       <div className="row">
-        {pics.map((pic) => {
-          return (
-            <div className="card" key={pic.id}>
-              <a
-                href="https://github.com/reactjs"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img src={pic.avatar_url} style={{ width: "100px" }} alt="" />
-              </a>
-              <p className="card-text">reactjs</p>
-            </div>
-          );
-        })}
+        {isFirst ? (
+          <div>please input something</div>
+        ) : isLoading ? (
+          <div>Loading...</div>
+        ) : err ? (
+          <div>{err.message}</div>
+        ) : (
+          picArr.map((pic) => {
+            return (
+              <div className="card" key={pic.id}>
+                <a href={pic.html_url} target="_blank" rel="noreferrer">
+                  <img src={pic.avatar_url} style={{ width: "100px" }} alt="" />
+                </a>
+                <p className="card-text">{pic.login}</p>
+              </div>
+            );
+          })
+        )}
       </div>
     );
   }

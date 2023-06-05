@@ -8,13 +8,13 @@ export default class Search extends Component {
       searchEl: { value: keyWord }, // 连续解构赋值+重命名
     } = this;
     if (keyWord.trim() === "") alert("please input something");
+    this.props.updateAppState({ isFirst: false, isLoading: true });
     axios.get(`http://localhost:3000/api1/search/users?q=${keyWord}`).then(
       (res) => {
-        this.props.getPicData(res.data.items);
-        // console.log("success", res.data);
+        this.props.updateAppState({ isLoading: false, picArr: res.data.items });
       },
       (error) => {
-        console.log("fail", error);
+        this.props.updateAppState({ isLoading: false, err: error });
       }
     );
   };
