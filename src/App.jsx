@@ -1,8 +1,9 @@
-import React, { Component } from "react";
-import { Link, Route, NavLink } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import MyNavLink from "./components/MyNavLink";
+import React, { Component } from 'react'
+import { Link, Route, NavLink, Switch, Redirect } from 'react-router-dom'
+import Home from './pages/Home'
+import About from './pages/About'
+import Test from './pages/Test'
+import MyNavLink from './components/MyNavLink'
 
 export default class App extends Component {
   render() {
@@ -32,13 +33,19 @@ export default class App extends Component {
             <div className="panel">
               <div className="panel-body">
                 {/* 注册路由 */}
-                <Route path="/about" component={About} />
-                <Route path="/home" component={Home} />
+                {/* 当存在多了同路径的路由时，使用Switch只会匹配第一个符合的 */}
+                {/* 开启严格匹配 <Route exact path="/about" component={About} /> ，不写exact则为模糊匹配 */}
+                <Switch>
+                  <Route path="/about" component={About} />
+                  <Route path="/home" component={Home} />
+                  <Route path="/home" component={Test} />
+                  <Redirect to="/home"></Redirect>
+                </Switch>
               </div>
             </div>
           </div>
         </div>
       </div>
-    );
+    )
   }
 }

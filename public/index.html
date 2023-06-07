@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <link rel="stylesheet" href="./css/bootstrap.css" />
-    <title>React App</title>
-    <style>
-      .bg_color {
-        background-color: skyblue !important;
-        color: #fff !important;
-      }
-    </style>
-  </head>
 
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <!-- 解决多级路由刷新页面导致样式丢失的办法，将./css/bootstrap.css 的.去掉 -->
+  <link rel="stylesheet" href="/css/bootstrap.css" />
+  <title>React App</title>
+  <style>
+    .bg_color {
+      background-color: skyblue !important;
+      color: #fff !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
 </html>
