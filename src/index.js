@@ -1,10 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
+//引入react核心库
+import React from "react";
+//引入ReactDOM
+import ReactDOM from "react-dom/client";
+//
+import { BrowserRouter, HashRouter } from "react-router-dom";
+//引入App
+import App from "./App";
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+  <BrowserRouter>
+    <App></App>
+  </BrowserRouter>
+  // <HashRouter>
+  //   <App></App>
+  // </HashRouter>
+);
