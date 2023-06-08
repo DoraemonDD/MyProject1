@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { Link, Route, NavLink, Switch, Redirect } from 'react-router-dom'
-import Home from './pages/Home'
-import About from './pages/About'
-import Test from './pages/Test'
-import MyNavLink from './components/MyNavLink'
+import React, { Component } from "react";
+import { Link, Route, NavLink, Switch, Redirect } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Test from "./pages/Test";
+import MyNavLink from "./components/MyNavLink";
 
 export default class App extends Component {
   render() {
@@ -12,7 +12,7 @@ export default class App extends Component {
         <div className="row">
           <div className="col-xs-offset-2 col-xs-8">
             <div className="page-header">
-              <h2>React Router Demo</h2>
+              <h2>流光Demo</h2>
             </div>
           </div>
         </div>
@@ -25,8 +25,8 @@ export default class App extends Component {
 
               {/* 在React中靠路由链接实现切换组件--编写路由链接 */}
               {/* children也属于标签的一个属性等于标签之间的内容 */}
-              <MyNavLink title="Home" to="/home" children="Home"></MyNavLink>
-              <MyNavLink title="About" to="/about" children="About"></MyNavLink>
+              <MyNavLink title="Home" to="/home" children="流光"></MyNavLink>
+              <MyNavLink title="About" to="/about" children="说明"></MyNavLink>
             </div>
           </div>
           <div className="col-xs-6">
@@ -46,6 +46,6 @@ export default class App extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
