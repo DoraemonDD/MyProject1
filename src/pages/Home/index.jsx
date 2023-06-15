@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 // import { Image } from 'antd'
 // import ex1 from './imgs/example1.png'
 // import ex2 from './imgs/example1.png'
 // import ex3 from './imgs/animation.gif'
-import News from './News'
-import Message from './Message'
-import MyNavLink from '../../components/MyNavLink'
-import { Route, Redirect, Switch } from 'react-router-dom'
+import News from "./News";
+import Message from "./Message";
+import MyNavLink from "../../components/MyNavLink";
+import { Route, Redirect, Switch } from "react-router-dom";
 
 export default class Home extends Component {
   render() {
@@ -34,6 +34,6 @@ export default class Home extends Component {
           </Switch>
         </div>
       </div>
-    )
+    );
   }
 }
